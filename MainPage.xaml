@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:Extra_Task"
+             xmlns:local1="clr-namespace:Extra_Task.ExtraTask_1"
+             x:Class="Extra_Task.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.ColumnSpan="3" Orientation="Horizontal">
+            <Label Text="Extra Task #1 - Ready"
+               TextColor="{local1:ExtraTask_1_Part_1 A=255, R=108, G=77, B=64}" 
+               BackgroundColor="{local1:ExtraTask_1_Part_1 A=255, R=128, G=203, B=196}"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center" />
+            <ListView x:Name="listView" ItemsSource="{Binding Colors}"
+                      BackgroundColor="{local1:ExtraTask_1_Part_1 A=255, R=100, G=52, B=255}" />
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
