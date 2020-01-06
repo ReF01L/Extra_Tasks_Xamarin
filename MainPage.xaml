@@ -4,10 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:local="clr-namespace:Extra_Task"
+             xmlns:converters="clr-namespace:Extra_Task.ExtraTask_4"
              xmlns:local1="clr-namespace:Extra_Task.ExtraTask_1"
+             xmlns:local2="clr-namespace:Extra_Task.ExtraTask_2"
              x:Class="Extra_Task.MainPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:IntEnumConverter x:Key="IntEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -30,6 +36,31 @@
                VerticalTextAlignment="Center" />
             <ListView x:Name="listView" ItemsSource="{Binding Colors}"
                       BackgroundColor="{local1:ExtraTask_1_Part_1 A=255, R=100, G=52, B=255}" />
+        </StackLayout>
+        
+        <local2:ExtraTask_2 StartColor="{local1:ExtraTask_1_Part_1 A=255, R=108, G=77, B=64}"
+                            EndColor="{local1:ExtraTask_1_Part_1 A=255, R=128, G=203, B=196}"
+                            Grid.ColumnSpan="3" Grid.Row="1"
+                            Orientation="Horizontal">
+            <Label Text="Extra Task #2 - Ready"
+                   TextColor="{local1:ExtraTask_1_Part_1 A=255, R=77, G=64, B=108}"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"/>
+        </local2:ExtraTask_2>
+        
+        <StackLayout x:Name="Task3"
+                     Grid.Row="2" Grid.ColumnSpan="3"
+                     BackgroundColor="Aqua"
+                     Orientation="Horizontal">
+        </StackLayout>
+        
+        <StackLayout BackgroundColor="DarkOrange"
+                     Grid.Row="3" Grid.ColumnSpan="3"
+                     Orientation="Horizontal" >
+            <Picker HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
+                    ItemsSource="{Binding ListOfMaterial}"
+                    SelectedIndex="{Binding SelectedMaterial, Converter={StaticResource IntEnum}}"
+                    />
         </StackLayout>
     </Grid>
 
