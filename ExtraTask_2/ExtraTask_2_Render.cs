@@ -17,6 +17,7 @@ namespace Extra_Task.ExtraTask_2
         private Xamarin.Forms.Color EndColor { get; set; }
         protected override void DispatchDraw(Canvas canvas)
         {
+            // Для вертикального: LinearGradien(0, 0, 0, Height, ...)
             var gradient = new LinearGradient(0, 0, Width, 0, StartColor.ToAndroid(), EndColor.ToAndroid(), Shader.TileMode.Mirror);
 
             var paint = new Paint();
