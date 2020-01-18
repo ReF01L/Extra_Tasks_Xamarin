@@ -12,20 +12,14 @@ namespace Extra_Task.ExtraTask_2
 {
     class ExtraTask_2_Render : VisualElementRenderer<StackLayout>
     {
-        public ExtraTask_2_Render(Context context) : base(context)
-        {
-        }
+        public ExtraTask_2_Render(Context context) : base(context) {}
         private Xamarin.Forms.Color StartColor { get; set; }
         private Xamarin.Forms.Color EndColor { get; set; }
         protected override void DispatchDraw(Canvas canvas)
         {
-            //var gradient = new Android.Graphics.LinearGradient(0, 0, 0, Height,
-            var gradient = new LinearGradient(0, 0, Width, 0, this.StartColor.ToAndroid(), this.EndColor.ToAndroid(), Shader.TileMode.Mirror);
+            var gradient = new LinearGradient(0, 0, Width, 0, StartColor.ToAndroid(), EndColor.ToAndroid(), Shader.TileMode.Mirror);
 
-            var paint = new Paint()
-            {
-                Dither = true,
-            };
+            var paint = new Paint();
             paint.SetShader(gradient);
             canvas.DrawPaint(paint);
             base.DispatchDraw(canvas);
@@ -34,18 +28,9 @@ namespace Extra_Task.ExtraTask_2
         {
             base.OnElementChanged(e);
 
-            if (e.OldElement != null && Element != null) return;
-
-            try
-            {
-                var stack = e.NewElement as ExtraTask_2;
-                this.StartColor = stack.StartColor;
-                this.EndColor = stack.EndColor;
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Error: {ex.Message}");
-            }
+            var stack = e.NewElement as ExtraTask_2;
+            this.StartColor = stack.StartColor;
+            this.EndColor = stack.EndColor;
         }
     }
 }

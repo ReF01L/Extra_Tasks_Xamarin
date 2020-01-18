@@ -14,6 +14,7 @@ namespace Extra_Task
     public partial class MainPage : ContentPage
     {
         public List<string> Colors { get; set; } = new List<string>();
+
         private Material _selectedMaterial;
         public Material SelectedMaterial
         {
@@ -42,7 +43,6 @@ namespace Extra_Task
 
             this.BindingContext = this;
             Task3.Children.Add(ExtraTask_3.ExtraTask_3.GetLabelWithFont());
-           
         }
     }
 }

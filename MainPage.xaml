@@ -39,7 +39,7 @@
         </StackLayout>
         
         <local2:ExtraTask_2 StartColor="{local1:ExtraTask_1_Part_1 A=255, R=108, G=77, B=64}"
-                            EndColor="{local1:ExtraTask_1_Part_1 A=255, R=128, G=203, B=196}"
+                            EndColor="{local1:ExtraTask_1_Part_1 A=25, R=128, G=203, B=196}"
                             Grid.ColumnSpan="3" Grid.Row="1"
                             Orientation="Horizontal">
             <Label Text="Extra Task #2 - Ready"
